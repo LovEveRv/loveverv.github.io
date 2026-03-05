@@ -127,7 +127,7 @@ def build(src_root: Path, pages_root: Path, templates_root: Path) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build static pages for GitHub Pages.")
     parser.add_argument("--src", type=Path, default=Path("src"), help="Source directory")
-    parser.add_argument("--pages", type=Path, default=Path("pages"), help="Output pages directory")
+    parser.add_argument("--pages", type=Path, default=Path("docs"), help="Output pages directory")
     parser.add_argument(
         "--templates",
         type=Path,
