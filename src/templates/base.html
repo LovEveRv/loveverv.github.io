@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    {% for stylesheet in stylesheets | default([]) %}
+    <link rel="stylesheet" href="/css/{{ stylesheet }}"/>
+    {% endfor %}
+    {% for script in scripts | default([]) %}
+    <script src="/js/{{ script }}"></script>
+    {% endfor %}
+    {% block resource %}
+    {% endblock %}
+</head>
+<body class="d-flex flex-column h-100">
+{% block body %}
+{% endblock %}
+</body>
+</html>

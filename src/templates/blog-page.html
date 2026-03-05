@@ -1,0 +1,65 @@
+{% extends "base-with-navbar&footer.html" %}
+
+{% block resource %}
+<!--Displaying MathJax-->
+<link rel="dns-prefetch" href="//cdn.mathjax.org"/>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath:  [["$", "$"]],
+        displayMath: [["$$", "$$"]],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a'],
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"],
+        showMathMenu: false
+    }
+});
+MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endblock %}
+
+{% block mainbody %}
+<div class="header">
+    <img src="{{ blog.coverimg }}"/>
+    <div class="d-flex flex-row justify-content-center align-items-center text-white header-title">
+        <div class="container text-center"><h1>{{ blog.title }}</h1></div>
+    </div>
+</div>
+
+<div class="main-div">
+    <div class="row" id="main-div-row">
+        <div class="col-12 col-md-10 offset-md-1">
+            <div class="row">
+                <div class="col-lg-4 col-xl-3 d-none d-lg-block">
+                    <div class="side-card">
+                        <div class="card-title">
+                            <div class="card-title-text">CONTENTS</div>
+                            <div class="card-title-underline"></div>
+                        </div>
+                        <div id="side-contents">
+                            {{ blog.toc | safe }}
+                        </div>
+                        <div class="return text-center">
+                            <small><a href="#">返回顶部</a></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-xl-9 full-text">
+                    <div class="publish-time">
+                        Published:&nbsp;&nbsp;{{ blog.publish_date }}
+                    </div>
+                    <article class="markdown-body">
+                        {{ blog.text | safe }}
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
