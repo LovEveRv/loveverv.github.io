@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     {% for blog in blogs %}
-                    <div class="post-card" onclick="javascript:window.location.href='/blog/{{ blog.id }}.html'">
+                    <div class="post-card" onclick="javascript:window.location.href='/docs/blog/{{ blog.id }}.html'">
                         <div class="d-flex flex-row preview">
                             <div class="d-none d-md-block">
                                 <img src="{{ blog.coverimg }}"/>
@@ -31,7 +31,7 @@
                                 </svg>
                                 <small>{{ blog.publish_date }}</small>
                             </span>
-                            <span class="fulltext-link" onclick="javascript:window.location.href='/blog/{{ blog.id }}'">
+                            <span class="fulltext-link" onclick="javascript:window.location.href='/docs/blog/{{ blog.id }}'">
                                 <small>阅读全文</small>
                                 <!--Chevron-right SVG-->
                                 <svg class="bi bi-chevron-right" width="0.8em" height="0.8em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
