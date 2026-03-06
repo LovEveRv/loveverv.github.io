@@ -73,3 +73,8 @@
 .return a {
     color: #777;
 }
+
+.markdown-body p:has(img) {
+    display: flex;
+    justify-content: center;
+}
